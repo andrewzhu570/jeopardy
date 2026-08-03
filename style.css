@@ -1,1 +1,159 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  background-color: #060ce9;
+  color: #ffffff;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+header {
+  padding: 20px 0;
+}
+
+h1 {
+  color: #ffcc00; 
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px #000000;
+}
+
+footer {
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.score-container {
+  font-size: 1.5rem;
+  margin-top: 5px;
+  color: #ffffff;
+}
+
+
+.board-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  background-color: #000000; 
+  border: 5px solid #000000;
+}
+
+
+.category-card {
+  background-color: #060ce9;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 15px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  border: 2px solid #000;
+}
+
+.tile {
+  background-color: #060ce9;
+  color: #ffcc00; 
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  cursor: pointer;
+  border: 2px solid #000;
+  transition: transform 0.1s ease;
+}
+
+.tile:hover {
+  background-color: #1218f8;
+}
+
+
+.tile.used {
+  background-color: #060ce9;
+  color: transparent; /* Hides text */
+  cursor: default;
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #060ce9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  z-index: 100;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  max-width: 800px;
+  width: 100%;
+}
+
+#modal-question {
+  font-size: 2.2rem;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+
+.answer-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  width: 60%;
+}
+
+button {
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #e6b800;
+}
+
+.feedback {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}

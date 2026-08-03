@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeopardy Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <button id="switch-view-btn">Play Game</button>
+    </nav>
+
+    <!--Screen 1-->
+    <div id="editor screen" class="screen">
+        <header>
+            <input type="text" id="game-title" placeholder="Enter Game Title" value="Enter Title">
+        </header>
+
+        <main class="editor-container">
+            <div class="row-controls">
+                <div class="control-header-spacer"></div> 
+                <div class="row-point-control"><input type="number" value="100" step="100"></div>
+                <div class="row-point-control"><input type="number" value="200" step="100"></div>
+                <div class="row-point-control"><input type="number" value="300" step="100"></div>
+                <div class="row-point-control"><input type="number" value="400" step="100"></div>
+                <div class="row-point-control"><input type="number" value="500" step="100"></div>
+            </div>
+
+            <div class="board-wrapper">
+                <div class="category-row">
+                    <textarea placeholder="Category 1"></textarea>
+                    <textarea placeholder="Category 2"></textarea>
+                    <textarea placeholder="Category 3"></textarea>
+                    <textarea placeholder="Category 4"></textarea>
+                    <textarea placeholder="Category 5"></textarea>
+                </div>
+                <div id="editor-board" class="board-grid">
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
