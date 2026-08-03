@@ -9,11 +9,11 @@
 
 <body>
     <nav class="nav-bar">
-        <button id="switch-view-btn">Play Game</button>
+        <button id="switch-view-btn">Switch to Present Mode</button>
     </nav>
 
     <!--Screen 1-->
-    <div id="editor screen" class="screen">
+    <div id="editor-screen" class="screen">
         <header>
             <input type="text" id="game-title" placeholder="Enter Game Title" value="Enter Title">
         </header>
@@ -37,9 +37,96 @@
                     <textarea placeholder="Category 5"></textarea>
                 </div>
                 <div id="editor-board" class="board-grid">
-                    
+
                 </div>
             </div>
         </main>
     </div>
+    <!--Screen 2-->
+    <div id="present-screen" class="screen hidden">
+        <header>
+            <h1 id="game-board-display">JEOPARDY!</h1>
+        </header>
+
+        <main class="board-container">
+            <div id="game-board" class="board-grid-play">
+
+            </div>
+        </main>
+
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="modal-category">Category</h2>
+                <p id="modal-question">Question</p>
+                <div id="answer-container" class="answer-container hidden">
+                    <hr class="divider">
+                    <p id="modal-answer">Answer</p>
+                </div>
+                
+                <div class="modal-actions">
+                    <button id="reveal-btn" class="action-btn">Reveal Answer</button>
+                    <button id="close-btn" class="action-btn hidden">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="scoreboard-container">
+                <!-- Team 1 Card -->
+                <div class="team-card">
+                <input type="text" class="team-name" value="Team 1" placeholder="Team 1">
+                <div class="team-score-banner">
+                    <span class="team-score">0</span>
+                </div>
+                <div class="team-controls">
+                    <button class="score-btn add-btn">+</button>
+                    <button class="score-btn subtract-btn">&minus;</button>
+                </div>
+                </div>
+
+                <!-- Team 2 Card -->
+                <div class="team-card">
+                <input type="text" class="team-name" value="Team 2" placeholder="Team 2">
+                <div class="team-score-banner">
+                    <span class="team-score">0</span>
+                </div>
+                <div class="team-controls">
+                    <button class="score-btn add-btn">+</button>
+                    <button class="score-btn subtract-btn">&minus;</button>
+                </div>
+                </div>
+
+                <!-- Team 3 Card -->
+                <div class="team-card">
+                <input type="text" class="team-name" value="Team 3" placeholder="Team 3">
+                <div class="team-score-banner">
+                    <span class="team-score">0</span>
+                </div>
+                <div class="team-controls">
+                    <button class="score-btn add-btn">+</button>
+                    <button class="score-btn subtract-btn">&minus;</button>
+                </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="editor-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Edit Tile Clue</h2>
+            <div class="input-group">
+                <label>Question Prompt:</label>
+                <textarea id="edit-question-input" rows="3" placeholder="Enter question here..."></textarea>
+            </div>
+            <div class="input-group">
+                <label>Answer Solution:</label>
+                <input type="text" id="edit-answer-input" placeholder="Enter answer here...">
+            </div>
+            <button id="save-clue-btn" class="action-btn">Save Clue</button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
 </body>
+</html>
