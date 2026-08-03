@@ -1,3 +1,120 @@
 .hidden {
-    display: none !important;
+    display:none !important;
 }
+
+body {
+    background-color: blue;
+}
+
+#game-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    margin-top: 30px;
+}
+
+.category-row textarea {
+    background: transparent;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+
+.scoreboard-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.team-name{
+    text-align: center;
+}
+
+#editor-board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  grid-template-rows: repeat(5, 1fr);                              
+  width: 100%;
+}
+
+.editor-tile {
+  background-color: transparent;          
+  color: #ffffff;
+  border: 2px solid #000000;
+  height: 80px;                         
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+
+.editor-tile:hover {
+  background-color: #3146c8;
+  transform: scale(1.02);
+}
+
+.editor-container {
+    margin-top: 20px;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:flex-start;
+    margin: 0 auto;
+}
+
+.control-header-spacer {
+    height:70px;
+}
+
+.row-controls {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+}
+.row-point-control {
+  height: 80px;              
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.board-wrapper {
+    width: 100%;
+}
+
+.row-point-control input {
+    background: transparent;
+    border: none;
+    text-align: right;
+    font-size: 1.2rem;
+}
+

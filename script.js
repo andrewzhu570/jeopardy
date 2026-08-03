@@ -26,3 +26,40 @@ switchViewBtn.addEventListener("click", () => {
         isPresentMode = false
     }   
 })
+
+
+
+const editorBoard = document.getElementById("editor-board");
+
+
+function generateEditorBoard() {
+  editorBoard.innerHTML = "";
+
+  const rows = 5;
+  const cols = 5;
+
+  
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      
+      const tile = document.createElement("div");
+      
+      
+      tile.classList.add("editor-tile");
+
+      
+      tile.dataset.row = r;
+      tile.dataset.col = c;
+      tile.innerText = `Input Question`;
+
+      tile.addEventListener("click", () => {
+        console.log(`Clicked tile at Row ${r + 1}, Column ${c + 1}`);
+        // open #editor-modal here!
+      });
+      editorBoard.appendChild(tile);
+    }
+  }
+}
+
+// Call the function to render the board on load
+generateEditorBoard();
