@@ -58,7 +58,6 @@ function generateEditorBoard() {
         console.log(`Clicked tile at Row ${r + 1}, Column ${c + 1}`);
         // open #editor-modal here!
         modal = document.getElementById("editor-modal");
-        modal.style.display = "block";
         modal.classList.remove("hidden");
         saveButton = document.getElementById("save-clue-btn");
         saveButton.onclick = function() {
@@ -69,7 +68,8 @@ function generateEditorBoard() {
           
           if (questionText !== "" && answerText !== "") {
             questions[`${r}-${c}`] = { question: questionText, answer: answerText };
-            tile.innerText = `Q: ${questionText}\nA: ${answerText}`;
+            tile.innerText = "Question Saved!";
+            tile.style.color = "green";
             modal.classList.add("hidden");
             questionInput.value = "";
             answerInput.value = "";
