@@ -3,7 +3,7 @@ const editorScreen = document.getElementById("editor-screen");
 const presentScreen = document.getElementById("present-screen");
 
 const gameTitleInput = document.getElementById("game-title");
-const gameTitleDisplay = document.getElementById("game-title-display");
+const gameTitleDisplay = document.getElementById("game-board-display");
 
 let isPresentMode = false
 
@@ -16,6 +16,8 @@ switchViewBtn.addEventListener("click", () => {
         presentScreen.classList.remove("hidden");
         editorScreen.classList.add("hidden");
         switchViewBtn.innerText = "Switch to Editor";
+
+        generatePresentBoard();
 
         const customTitle = gameTitleInput.value.trim();
         gameTitleDisplay.innerText = customTitle !== "" ? customTitle : "JEOPARDY";
@@ -83,6 +85,38 @@ function generateEditorBoard() {
   }
 }
 
+function generatePresentBoard() {
+  const presentBoard = document.getElementById("game-board");
+  presentBoard.innerHTML = "";
+
+  const rows = 5;
+  const cols = 5;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const tile = document.createElement("div");
+      tile.classList.add("present-tile");
+      tile.dataset.row = r;
+      tile.dataset.col = c;
+
+      const key = `${r}-${c}`;
+      const pointInput = document.querySelector(`#row-point-control-${r + 1} input`);
+      const pointValue = pointInput ? pointInput.value : (r + 1) * 100;
+      tile.innerText = pointValue;
+      tile.addEventListener("click", () => {
+        if (questions[key]) {
+          const question = questions[key].question;
+          const answer = questions[key].answer;
+          modal = document.getElementById("modal");
+          modal.classList.remove("hidden");
+          document.getElementById("modal-question").innerText = question;
+          document.getElementById("modal-answer").innerText = answer;
+        }
+      });
+      presentBoard.appendChild(tile);
+    }
+  }
+}
 
 // Call the function to render the board on load
 generateEditorBoard();
