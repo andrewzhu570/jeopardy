@@ -46,6 +46,7 @@ header {
     margin-bottom: 20px;
     margin-left: 100px;
     margin-right: 100px;
+    margin-top: 20px;
 }
 
 .team-name{
@@ -172,11 +173,35 @@ header {
   transform: scale(1.02);
 }
 
-.board-container {
+.board-grid-play {
     margin-top: 20px;
     display:flex;
     flex-direction:row;
     justify-content:center;
     align-items:flex-start;
     margin: 0 auto;
+}
+
+.board-container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.category-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    height: 50px;
+}
+
+.present-tile.answered{
+    pointer-events: none;
+    opacity: 0.2;
+    cursor: default;
 }
