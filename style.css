@@ -44,8 +44,8 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 400px;
+    margin-right: 400px;
     margin-top: 20px;
 }
 
@@ -123,8 +123,8 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;              
-  height: 100vh;              
+  width: 100%;              
+  height: 100%;              
   background-color: rgba(0, 0, 0, 0.6); 
   
   display: flex;
@@ -147,21 +147,22 @@ header {
 #game-board {
   display: grid;
   grid-template-columns: repeat(5, 1fr); 
-  grid-template-rows: repeat(5, 1fr);                              
-  width: 100%;
+  grid-template-rows: auto repeat(5, 1fr);                              
+  width: 60%;
 }
 
 .present-tile {
-  background-color: transparent;          
-  color: #ffffff;
-  border: 2px solid #000000;
-  height: 80px;                         
+  background-color: #060ce9;        
+  color: #ffcc00;
+  border: 3px solid #000000;
+  height: 80px;                   
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-family: 'Merriweather', serif;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1.7rem;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.2s ease, transform 0.1s ease;
@@ -174,7 +175,7 @@ header {
 }
 
 .board-grid-play {
-    margin-top: 20px;
+    margin-top: 5px;
     display:flex;
     flex-direction:row;
     justify-content:center;
@@ -190,18 +191,70 @@ header {
 }
 
 .category-header {
+    font-family: 'Merriweather',serif;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 700;
     color: #ffffff;
-    height: 50px;
+    height: 60px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    background-color:#060ce9;
+    border: 5px solid #000000;
 }
+
 
 .present-tile.answered{
     pointer-events: none;
     opacity: 0.2;
     cursor: default;
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;               
+    height: 100vh;              
+    background-color: #060ce9;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;              
+}
+
+#modal .modal-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #ffffff;
+}
+
+#modal-question {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    max-width: 80%;
+}
+
+#modal-answer {
+    font-size: 2rem;
+    color: #ffcc00;             
+    margin-top: 20px;
+}
+
+#game-board-display {
+    color:#ffcc00;
+    font-family: 'Merriweather', serif;
+    font-size: 2rem;
 }
