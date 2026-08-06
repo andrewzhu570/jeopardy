@@ -1,4 +1,4 @@
-# Jeapoardy
+# Jeopardy
 
 Simple browser quiz game using HTML, CSS, and JavaScript.
 
