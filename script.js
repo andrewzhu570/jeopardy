@@ -108,7 +108,7 @@ function generatePresentBoard() {
       const key = `${r}-${c}`;
       const pointInput = document.querySelector(`#row-point-control-${r + 1} input`);
       const pointValue = pointInput ? pointInput.value : (r + 1) * 100;
-      tile.innerText = pointValue;
+      tile.innerText = '$' + pointValue;
 
       tile.addEventListener("click", () => {
         currentPointValue = parseInt(pointValue, 10) || 0;

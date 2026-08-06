@@ -44,14 +44,33 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    margin-left: 400px;
-    margin-right: 400px;
+    margin-left: 200px;
+    margin-right: 200px;
     margin-top: 20px;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #060ce9;
+    color: #ffcc00;
+    border: 5px solid #000000;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .team-name{
     text-align: center;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #e6e6e6;
 }
+
+
 
 #editor-board {
   display: grid;
@@ -162,7 +181,7 @@ header {
   text-align: center;
   font-family: 'Merriweather', serif;
   font-weight: bold;
-  font-size: 1.7rem;
+  font-size: 2.5rem;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.2s ease, transform 0.1s ease;
@@ -240,10 +259,17 @@ header {
     color: #ffffff;
 }
 
+#modal .action-btn {
+    font-size: 1.2rem;
+    border-radius: 4px;
+}
+
+
+
 #modal-question {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     max-width: 80%;
 }
 
@@ -257,4 +283,19 @@ header {
     color:#ffcc00;
     font-family: 'Merriweather', serif;
     font-size: 2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.answer-container:not(.hidden) {
+  animation: fadeIn 2s ease-in-out forwards;
 }
