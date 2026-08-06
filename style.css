@@ -299,3 +299,36 @@ header {
 .answer-container:not(.hidden) {
   animation: fadeIn 2s ease-in-out forwards;
 }
+
+#end-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #060ce9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.end-title {
+    font-size: 4rem;
+    color: #ffcc00;
+    text-shadow: 3px 3px 0px #000000;
+    margin-bottom: 10px;
+}
+
+#winner-text {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+#end-screen .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}

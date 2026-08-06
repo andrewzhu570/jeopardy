@@ -134,9 +134,15 @@ function generatePresentBoard() {
               document.getElementById("close-btn").classList.add("hidden");
               answerButton.classList.remove("hidden");
               tile.classList.add("answered");
+
+              const totalTiles = document.querySelectorAll(".present-tile").length;
+              const answeredTiles = document.querySelectorAll(".present-tile.answered").length;
+
+              if (answeredTiles === 1) {
+                setTimeout(triggerEndGame, 500);
+              }
             }
           }
-
         }
       });
       presentBoard.appendChild(tile);
@@ -163,6 +169,41 @@ function setupScoreboard() {
     });
   });
 }
+
+function triggerEndGame() {
+  const endScreen = document.getElementById("end-screen");
+  const winnerText = document.getElementById("winner-text");
+  const teamCards = document.querySelectorAll(".team-card");
+
+  let highestScore = -Infinity;
+  let winningTeam = "";
+
+  teamCards.forEach((card, index) => {
+    const inputVal = card.querySelector(".team-name").value.trim();
+    const teamName = inputVal !== "" ? inputVal : `Team ${index + 1}`;
+    const score = parseInt(card.querySelector(".team-score").innerText, 10) || 0;
+    if (score > highestScore) {
+      highestScore = score;
+      winningTeam = teamName;
+    }
+  });
+
+  winnerText.innerText = `${winningTeam} wins with $${highestScore}!`;
+  endScreen.classList.remove("hidden");
+}
+
+const finishBtn = document.getElementById("finish-btn");  
+finishBtn.addEventListener("click", () => {
+    document.getElementById("end-screen").classList.add("hidden");
+    const editorTiles = document.querySelectorAll(".editor-tile");
+    editorTiles.forEach((tile) => {
+      tile.innerText = "Input Question";
+      tile.style.color = ""; 
+    });
+
+  questions = {};
+  switchViewBtn.click(); 
+  });
 
 generateEditorBoard();
 setupScoreboard();
