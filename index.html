@@ -58,6 +58,7 @@
         <div id="modal" class="modal hidden">
             <div class="modal-content">
                 <h2 id="modal-category">Category</h2>
+                <img id="modal-image" class="modal-img hidden" src="" alt="Clue Image">
                 <p id="modal-question">Question</p>
                 <div id="answer-container" class="answer-container hidden">
                     <hr class="divider">
@@ -126,6 +127,10 @@
             <div class="input-group">
                 <label>Question Prompt:</label>
                 <textarea id="edit-question-input" rows="3" placeholder="Enter question here..."></textarea>
+            </div>
+            <div class="input-group">
+                <label>Image URL (Optional):</label>
+                <input type="text" id="edit-image-input">
             </div>
             <div class="input-group">
                 <label>Answer Solution:</label>

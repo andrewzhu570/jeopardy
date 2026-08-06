@@ -64,18 +64,21 @@ function generateEditorBoard() {
         saveButton.onclick = function() {
           const questionInput = document.getElementById("edit-question-input");
           const answerInput = document.getElementById("edit-answer-input");
+          const imageInput = document.getElementById("edit-image-input")
           const questionText = questionInput.value.trim();
           const answerText = answerInput.value.trim();
+          const imageUrl = imageInput.value.trim();
           
-          if (questionText !== "" && answerText !== "") {
-            questions[`${r}-${c}`] = { question: questionText, answer: answerText };
+          if (answerText !== "") {
+            questions[`${r}-${c}`] = { question: questionText, answer: answerText, image: imageUrl };
             tile.innerText = "Question Saved!";
             tile.style.color = "green";
             modal.classList.add("hidden");
             questionInput.value = "";
             answerInput.value = "";
+            imageInput.value = ""
           } else {
-            alert("Please fill in both the question and the answer.");
+            alert("Please fill in an answer.");
           }
         }
       });
@@ -119,14 +122,21 @@ function generatePresentBoard() {
           modal.classList.remove("hidden");
           document.getElementById("modal-question").innerText = question;
           document.getElementById("modal-answer").innerText = answer;
-        
+          const imageUrl = questions[key].image;
+          const modalImg = document.getElementById("modal-image");
+          if (imageUrl) {
+            modalImg.src = imageUrl;
+            modalImg.classList.remove("hidden");
+          } else {
+            modalImg.src = "";
+            modalImg.classList.add("hidden");
+          }
 
           const answerButton = document.getElementById("reveal-btn");
           answerButton.onclick = function() {
             document.getElementById("answer-container").classList.remove("hidden");
             document.getElementById("close-btn").classList.remove("hidden");
             answerButton.classList.add("hidden");
-            document.getElementById("modal-answer").value = answer;
 
             document.getElementById("close-btn").onclick = function() {
               modal.classList.add("hidden");
@@ -138,7 +148,7 @@ function generatePresentBoard() {
               const totalTiles = document.querySelectorAll(".present-tile").length;
               const answeredTiles = document.querySelectorAll(".present-tile.answered").length;
 
-              if (answeredTiles === 1) {
+              if (answeredTiles === totalTiles) {
                 setTimeout(triggerEndGame, 500);
               }
             }

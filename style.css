@@ -332,3 +332,12 @@ header {
     justify-content: center;
     align-items: center;    
 }
+
+.modal-img {
+    max-width: 80%;
+    max-height: 300px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
