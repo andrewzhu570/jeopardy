@@ -1,6 +1,12 @@
-## Jeopardy
+### Jeopardy
+
+
+<img width="1130" height="732" alt="Screenshot 2026-08-08 at 5 54 19 PM" src="https://github.com/user-attachments/assets/77b0d083-e3ae-42fb-ac02-de02304f1066" />
+
 
 Simple browser quiz game using HTML, CSS, and JavaScript.
+
+Try it here -> https://andrewzhu570.github.io/jeopardy/
 
 ## Features:
 - Title, category, question, and answer inputs.
@@ -14,4 +20,4 @@ Simple browser quiz game using HTML, CSS, and JavaScript.
 - style.css
 
 ## Run:
-Open the Github Pages link found in the About section or the release.
+Open the Github Pages link.
