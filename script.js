@@ -228,5 +228,14 @@ finishBtn.addEventListener("click", () => {
   switchViewBtn.click(); 
   });
 
+document.getElementById("clear-board-btn").addEventListener("click", () => {
+  const editorTiles = document.querySelectorAll(".editor-tile");
+    editorTiles.forEach((tile) => {
+      tile.innerText = "Input Question";
+      tile.style.color = ""; 
+    });
+  questions = {};
+});
+
 generateEditorBoard();
 setupScoreboard();
