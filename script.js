@@ -8,7 +8,7 @@ const gameTitleDisplay = document.getElementById("game-board-display");
 let isPresentMode = false
 let currentPointValue = 0;
 
-questions = {}
+let questions = {}
 
 switchViewBtn.addEventListener("click", () => {
     isPresentMode = !isPresentMode;
@@ -43,7 +43,7 @@ function generateEditorBoard() {
   const rows = 5;
   const cols = 5;
 
-  
+  // generates grid
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
       
@@ -57,6 +57,7 @@ function generateEditorBoard() {
       tile.dataset.col = c;
       tile.innerText = `Input Question`;
 
+      // click function for each tile
       tile.addEventListener("click", () => {
         modal = document.getElementById("editor-modal");
         modal.classList.remove("hidden");
@@ -94,6 +95,8 @@ function generatePresentBoard() {
   const rows = 5;
   const cols = 5;
   const categories = [];
+
+  // generates category headers
   for (let i = 0; i < 5; i++) {
     const categoryInput = document.querySelector(`.category-row textarea:nth-child(${i + 1})`);
     const categoryText = categoryInput ? categoryInput.value.trim() : `Category ${i + 1}`;
@@ -103,6 +106,8 @@ function generatePresentBoard() {
     categories.push(categoryText)
     presentBoard.appendChild(categoryHeader);
   }
+
+  // generates grid
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
       const tile = document.createElement("div");
@@ -115,6 +120,7 @@ function generatePresentBoard() {
       const pointValue = pointInput ? pointInput.value : (r + 1) * 100;
       tile.innerText = '$' + pointValue;
 
+      // click function for each tile
       tile.addEventListener("click", () => {
         currentPointValue = parseInt(pointValue, 10) || 0;
         if (questions[key]) {
@@ -136,11 +142,14 @@ function generatePresentBoard() {
           }
 
           const answerButton = document.getElementById("reveal-btn");
+
+          // reveals answer
           answerButton.onclick = function() {
             document.getElementById("answer-container").classList.remove("hidden");
             document.getElementById("close-btn").classList.remove("hidden");
             answerButton.classList.add("hidden");
-
+            
+            // closes the modal
             document.getElementById("close-btn").onclick = function() {
               modal.classList.add("hidden");
               document.getElementById("answer-container").classList.add("hidden");
@@ -205,6 +214,7 @@ function triggerEndGame() {
   endScreen.classList.remove("hidden");
 }
 
+// finish button functionality on endgame screen
 const finishBtn = document.getElementById("finish-btn");  
 finishBtn.addEventListener("click", () => {
     document.getElementById("end-screen").classList.add("hidden");
