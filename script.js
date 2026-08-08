@@ -93,12 +93,14 @@ function generatePresentBoard() {
 
   const rows = 5;
   const cols = 5;
+  const categories = [];
   for (let i = 0; i < 5; i++) {
     const categoryInput = document.querySelector(`.category-row textarea:nth-child(${i + 1})`);
     const categoryText = categoryInput ? categoryInput.value.trim() : `Category ${i + 1}`;
     const categoryHeader = document.createElement("div");
     categoryHeader.classList.add("category-header");
     categoryHeader.innerText = categoryText !== "" ? categoryText : `Category ${i + 1}`;
+    categories.push(categoryText)
     presentBoard.appendChild(categoryHeader);
   }
   for (let r = 0; r < rows; r++) {
@@ -120,6 +122,7 @@ function generatePresentBoard() {
           const answer = questions[key].answer;
           modal = document.getElementById("modal");
           modal.classList.remove("hidden");
+          document.getElementById("modal-category").innerText = categories[c];
           document.getElementById("modal-question").innerText = question;
           document.getElementById("modal-answer").innerText = answer;
           const imageUrl = questions[key].image;
